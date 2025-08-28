@@ -1,24 +1,26 @@
 :root{
-  --txt:#0e0e10; --muted:#3a3a42; --light:#ffffff;
-  --bg:#f7efe4;                     /* тёплый песок */
-  --glass: rgba(255,255,255,.55);
-  --border: rgba(0,0,0,.08);
-  --ac:#d97706;                     /* золотисто-янтарный */
-  --ac2:#ef4444;                    /* красный (18+) */
+  --txt:#0e0e10; 
+  --muted:#3a3a42; 
+  --bg:#f7efe4; /* тёплый песок */
+  --ac:#d97706; /* золотисто-янтарный */
+  --ac2:#ef4444; /* красный (18+) */
 }
 
+/* сброс */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;color:var(--txt);
+  margin:0;
+  color:var(--txt);
   background: var(--bg);
   font:16px/1.55 "Manrope",system-ui,Segoe UI,Roboto,Arial;
 }
 
-/* Фон арены */
+/* фон арены */
+.hero-bg{position:fixed; inset:0; z-index:-2; overflow:hidden}
+.hero-bg img{width:100%; height:100%; object-fit:cover}
 .hero-bg .overlay{
   position:absolute; inset:0; z-index:1;
-  /* меньше «молока», текст станет читаться лучше */
   background:linear-gradient(180deg,
     rgba(255,255,255,.55) 0%,
     rgba(255,255,255,.42) 28%,
@@ -26,82 +28,90 @@ body{
     rgba(255,255,255,.18) 100%);
   backdrop-filter: blur(1.5px);
 }
+.vignette{
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.20);
+}
 
+/* верх */
 .topbar{
   display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;border-bottom:1px solid var(--border);
-  background:rgba(255,255,255,.7); backdrop-filter: blur(6px);
+  padding:16px 20px;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  background:rgba(255,255,255,.7); 
+  backdrop-filter: blur(6px);
 }
-.brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.5px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800}
 .logo{font-size:20px}
 .rightside{display:flex;align-items:center;gap:12px}
 .age{
   display:flex;align-items:center;gap:8px;
-  font-weight:900;color:#b91c1c; padding:4px 8px;
+  font-weight:900;color:#b91c1c;
+  padding:4px 8px;
   background:linear-gradient(135deg,#fee2e2,#fecaca);
   border:1px solid rgba(185,28,28,.25); border-radius:999px;
 }
 .age img{width:22px;height:22px; display:block}
 .lang button{
-  background:transparent;border:1px solid var(--border);color:var(--txt);
-  padding:6px 10px;border-radius:8px;cursor:pointer
+  background:transparent;
+  border:1px solid rgba(0,0,0,.1);
+  color:var(--txt);
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer
 }
 .lang .active{border-color:var(--ac);color:var(--ac)}
 
+/* контейнер */
 .container{max-width:980px;margin:28px auto;padding:0 20px}
 
 /* центр: бой + таймер */
 .center-hero{
   margin:26px auto; padding:26px 24px;
-  border-radius:22px; border:1px solid rgba(0,0,0,.06);
+  border-radius:22px;
+  border:1px solid rgba(0,0,0,.06);
   background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.52));
-  box-shadow:
-    0 20px 40px rgba(0,0,0,.12),
-    inset 0 1px 0 rgba(255,255,255,.6);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
   backdrop-filter: blur(10px);
   text-align:center; max-width:940px;
 }
-.fighters{font-size:34px; font-weight:900; letter-spacing:.3px}
+.fighters{font-size:34px; font-weight:900}
 .count{font-size:46px;font-weight:900;margin-top:8px}
-}
-.fighters{font-size:28px; font-weight:800; letter-spacing:.3px}
-.count{font-size:42px;font-weight:900;margin-top:6px}
 
+/* кнопки */
 .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:18px 0}
 .btn{
-  padding:12px 16px;border-radius:12px;border:1px solid var(--border);
-  color:var(--txt);text-decoration:none;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-  background:rgba(255,255,255,.8)
+  padding:12px 16px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.1);
+  color:var(--txt);
+  text-decoration:none;
+  transition:all .2s ease;
+  background:rgba(255,255,255,.85)
 }
-..btn.primary{
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{
   background:linear-gradient(135deg,#f59e0b,#d97706);
   border-color:transparent; color:#fff
 }
 .btn.primary:hover{
   box-shadow:0 16px 40px rgba(217,119,6,.32);
-  transform:translateY(-1px);
 }
 
-.btn.outline{background:transparent}
-.glow{box-shadow:0 10px 30px rgba(217,119,6,.25)}
-
+/* карточки */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:940px;margin:0 auto}
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.52));
-  border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:18px;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:18px;
+  padding:18px;
   box-shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
   backdrop-filter: blur(8px);
 }
-.label{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.label{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;margin-bottom:6px}
 .muted{color:var(--muted)}
 
-.history{margin-top:20px}
-.history h3{margin:6px 0 10px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.history .item{
-  background:var(--glass); border:1px solid var(--border); border-radius:14px; padding:12px;
-  backdrop-filter: blur(8px)
-}
+/* история */
 .history{margin-top:24px; max-width:940px; margin-left:auto; margin-right:auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .history .item{
@@ -115,12 +125,8 @@ body{
 .history .item strong{font-weight:800}
 .history .win{font-weight:900;color:#d97706}
 
-.history .win{font-weight:800}
+/* подвал */
+.footer{max-width:980px;margin:10px auto 30px;padding:0 20px;display:flex;gap:10px;align-items:center}
 .small{color:#444;text-decoration:none;border-bottom:1px dashed rgba(0,0,0,.25)}
 .small:hover{color:#000}
 .foot{color:#444;font-size:13px;margin:16px 0}
-.footer{max-width:980px;margin:10px auto 30px;padding:0 20px;display:flex;gap:10px;align-items:center}
-.vignette{
-  position:absolute; inset:0; z-index:2; pointer-events:none;
-  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.20);
-}
