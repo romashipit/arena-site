@@ -1,0 +1,9 @@
+{
+  "name": "ARENA",
+  "ticker": "$ARENA",
+  "themeToday": "Doge vs Pepe",
+  "dexLink": "https://app.uniswap.org/swap?outputCurrency=BASE_ARENA_CA&chain=base",
+  "ticketLink": "https://t.me/your_bot?start=pass",
+  "chatLink": "https://t.me/your_chat_link",
+  "arenaEndsAtISO": "2025-08-28T21:00:00.000Z"
+}
