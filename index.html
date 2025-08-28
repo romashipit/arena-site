@@ -8,11 +8,20 @@
   <meta property="og:title" content="ARENA — 24h memecoin + uncensored chat">
   <meta property="og:description" content="New theme every day. Talk freely. No bots.">
   <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <div class="bg"></div>
+
   <header class="topbar">
-    <div class="brand">ARENA</div>
+    <div class="brand">
+      <!-- небольшой логотип-бейдж -->
+      <span class="logo">⚔️</span>
+      <span>ARENA</span>
+    </div>
     <div class="lang">
       <button id="btn-en" class="active">EN</button>
       <button id="btn-ru">RU</button>
@@ -20,22 +29,22 @@
   </header>
 
   <main class="container">
-    <h1 data-i18n="title">ARENA — 24h memecoin + uncensored chat</h1>
+    <h1 class="hero" data-i18n="title">ARENA — 24h memecoin + uncensored chat</h1>
     <p class="subtitle" data-i18n="subtitle">New theme every day. Talk freely. No bots.</p>
 
-    <div id="theme" class="card">
+    <div id="theme" class="card glass">
       <span class="label" data-i18n="todayTheme">Today’s theme</span>
       <h2 id="themeText">—</h2>
     </div>
 
-    <div id="timer" class="card">
+    <div id="timer" class="card glass">
       <span class="label" data-i18n="timeLeft">Time left</span>
-      <div id="countdown">--:--:--</div>
+      <div id="countdown" class="count">--:--:--</div>
     </div>
 
     <div class="actions">
-      <a id="chatLink" class="btn primary" target="_blank" data-i18n="joinChat">Join Chat</a>
-      <a id="ticketLink" class="btn" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
+      <a id="chatLink" class="btn primary glow" target="_blank" data-i18n="joinChat">Join Chat</a>
+      <a id="ticketLink" class="btn glow" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
       <a id="dexLink" class="btn outline" target="_blank" data-i18n="swap">Swap $ARENA</a>
     </div>
 
@@ -43,6 +52,12 @@
       We ban only scammers, porn-bots and hard spam. Everything else is allowed.
     </p>
   </main>
+
+  <footer class="footer">
+    <a href="https://t.me/" target="_blank" class="small">Telegram</a>
+    <span class="dot">•</span>
+    <a href="https://twitter.com/" target="_blank" class="small">X / Twitter</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
