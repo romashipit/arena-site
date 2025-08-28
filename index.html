@@ -4,9 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ARENA — 24h memecoin + uncensored chat</title>
-  <meta name="description" content="New theme every day. Talk freely. No bots.">
+  <meta name="description" content="New theme every day. Talk freely. No bots. 18+">
   <meta property="og:title" content="ARENA — 24h memecoin + uncensored chat">
-  <meta property="og:description" content="New theme every day. Talk freely. No bots.">
+  <meta property="og:description" content="New theme every day. Talk freely. No bots. 18+">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,39 +14,60 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="bg"></div>
+  <!-- Фон: одна арена на все дни -->
+  <div class="hero-bg">
+    <img src="arena-bg.jpg" alt="" onerror="this.style.display='none'">
+    <div class="overlay"></div>
+  </div>
 
   <header class="topbar">
     <div class="brand">
-      <!-- небольшой логотип-бейдж -->
-      <span class="logo">⚔️</span>
+      <span class="logo">🛡️</span>
       <span>ARENA</span>
     </div>
-    <div class="lang">
-      <button id="btn-en" class="active">EN</button>
-      <button id="btn-ru">RU</button>
+    <div class="rightside">
+      <div class="age">
+        <img src="badge-18.svg" alt="18+" onerror="this.remove();document.getElementById('ageText').style.display='inline'">
+        <span id="ageText">18+</span>
+      </div>
+      <div class="lang">
+        <button id="btn-en" class="active">EN</button>
+        <button id="btn-ru">RU</button>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <h1 class="hero" data-i18n="title">ARENA — 24h memecoin + uncensored chat</h1>
-    <p class="subtitle" data-i18n="subtitle">New theme every day. Talk freely. No bots.</p>
 
-    <div id="theme" class="card glass">
-      <span class="label" data-i18n="todayTheme">Today’s theme</span>
-      <h2 id="themeText">—</h2>
-    </div>
-
-    <div id="timer" class="card glass">
-      <span class="label" data-i18n="timeLeft">Time left</span>
+    <section class="center-hero glass">
+      <div class="fighters" id="fighters">⚔️ — vs —</div>
       <div id="countdown" class="count">--:--:--</div>
-    </div>
 
-    <div class="actions">
-      <a id="chatLink" class="btn primary glow" target="_blank" data-i18n="joinChat">Join Chat</a>
-      <a id="ticketLink" class="btn glow" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
-      <a id="dexLink" class="btn outline" target="_blank" data-i18n="swap">Swap $ARENA</a>
-    </div>
+      <div class="actions">
+        <a id="chatLink" class="btn primary glow" target="_blank" data-i18n="joinChat">Join Chat</a>
+        <a id="ticketLink" class="btn glow" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
+        <a id="dexLink" class="btn outline" target="_blank" data-i18n="swap">Swap $ARENA</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="card glass">
+        <span class="label" data-i18n="todayTheme">Today’s theme</span>
+        <h2 id="themeText">—</h2>
+      </div>
+
+      <div class="card glass">
+        <span class="label">NFT Badge</span>
+        <p id="nftText" class="muted">
+          🎖 VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
+        </p>
+      </div>
+    </section>
+
+    <section class="history">
+      <h3>Past Arenas</h3>
+      <div id="historyGrid" class="grid"></div>
+    </section>
 
     <p class="foot" data-i18n="foot">
       We ban only scammers, porn-bots and hard spam. Everything else is allowed.
