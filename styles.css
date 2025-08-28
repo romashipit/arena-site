@@ -26,21 +26,23 @@ body{
 .hero-bg img{
   width:100%; height:100%;
   object-fit:cover;
-  object-position:center top;    /* кадринг по центру */
-  transform:translateZ(0);       /* убираем дерганье на мобилках */
+  object-position:center top;
+  transform:translateZ(0);
+  filter:saturate(1.08) contrast(1.06);
 }
 .hero-bg .overlay{
   position:absolute; inset:0; z-index:1;
+  /* менее молочный слой: фон станет сочнее */
   background:linear-gradient(180deg,
-    rgba(255,255,255,.25) 0%,
-    rgba(255,255,255,.18) 30%,
-    rgba(255,255,255,.12) 60%,
-    rgba(255,255,255,.08) 100%);
-  backdrop-filter: blur(0.8px) contrast(1.08) saturate(1.08);
+    rgba(255,255,255,.22) 0%,
+    rgba(255,255,255,.16) 30%,
+    rgba(255,255,255,.10) 60%,
+    rgba(255,255,255,.06) 100%);
+  backdrop-filter: blur(.6px) contrast(1.06) saturate(1.06);
 }
 .vignette{
   position:absolute; inset:0; z-index:2; pointer-events:none;
-  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.20);
+  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.18);
 }
 
 /* ===== ШАПКА ===== */
@@ -49,7 +51,7 @@ body{
   display:flex;justify-content:space-between;align-items:center;
   padding:14px 20px;
   border-bottom:1px solid rgba(0,0,0,.06);
-  background:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.78);
   backdrop-filter: blur(6px);
 }
 .brand{display:flex;gap:10px;align-items:center;font-weight:800}
@@ -63,7 +65,7 @@ body{
   border:1px solid rgba(185,28,28,.25);
   border-radius:999px;
 }
-.age img{width:20px;height:20px;display:block}
+.age img{width:28px;height:28px;display:block}
 .lang button{
   background:transparent;border:1px solid rgba(0,0,0,.1);
   color:var(--txt); padding:6px 10px;border-radius:8px;cursor:pointer
