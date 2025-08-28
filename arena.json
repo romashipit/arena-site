@@ -1,9 +1,39 @@
 {
   "name": "ARENA",
   "ticker": "$ARENA",
-  "themeToday": "Doge vs Pepe",
+  "themeToday": "Pepe vs Doge",
+  "left": { "label": "Pepe", "emoji": "🐸" },
+  "right": { "label": "Doge", "emoji": "🐶" },
+
   "dexLink": "https://app.uniswap.org/swap?outputCurrency=BASE_ARENA_CA&chain=base",
   "ticketLink": "https://t.me/your_bot?start=pass",
   "chatLink": "https://t.me/your_chat_link",
-  "arenaEndsAtISO": "2025-08-28T21:00:00.000Z"
+  "arenaEndsAtISO": "2025-08-28T21:00:00.000Z",
+
+  "pastArenas": [
+    {
+      "id": 7,
+      "dateISO": "2025-08-26T21:00:00.000Z",
+      "theme": "Cats vs Dogs",
+      "left": { "label": "Cats", "emoji": "🐱" },
+      "right": { "label": "Dogs", "emoji": "🐶" },
+      "volumeUSD": 18250,
+      "txCount": 1390,
+      "chatHours": 24,
+      "messages": 9213,
+      "winner": "right"
+    },
+    {
+      "id": 6,
+      "dateISO": "2025-08-24T21:00:00.000Z",
+      "theme": "Aliens vs Humans",
+      "left": { "label": "Aliens", "emoji": "👽" },
+      "right": { "label": "Humans", "emoji": "🧑" },
+      "volumeUSD": 11300,
+      "txCount": 640,
+      "chatHours": 24,
+      "messages": 5044,
+      "winner": "left"
+    }
+  ]
 }
