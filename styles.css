@@ -31,13 +31,12 @@ body{
 }
 .hero-bg .overlay{
   position:absolute; inset:0; z-index:1;
-  /* мягкая дымка, чтобы текст читался */
   background:linear-gradient(180deg,
-    rgba(255,255,255,.55) 0%,
-    rgba(255,255,255,.42) 28%,
-    rgba(255,255,255,.28) 56%,
-    rgba(255,255,255,.18) 100%);
-  backdrop-filter: blur(1.5px);
+    rgba(255,255,255,.25) 0%,
+    rgba(255,255,255,.18) 30%,
+    rgba(255,255,255,.12) 60%,
+    rgba(255,255,255,.08) 100%);
+  backdrop-filter: blur(0.8px) contrast(1.08) saturate(1.08);
 }
 .vignette{
   position:absolute; inset:0; z-index:2; pointer-events:none;
