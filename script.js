@@ -3,7 +3,6 @@ const i18n = {
     title: "ARENA — 24h memecoin + uncensored chat",
     subtitle: "New theme every day. Talk freely. No bots.",
     todayTheme: "Today’s theme",
-    timeLeft: "Time left",
     joinChat: "Join Chat",
     buyPass: "Buy Pass ($3) / VIP ($10)",
     swap: "Swap $ARENA",
@@ -13,7 +12,6 @@ const i18n = {
     title: "ARENA — мемкоин на 24 часа + чат без цензуры",
     subtitle: "Каждый день новая тема. Говори как хочешь. Без ботов.",
     todayTheme: "Тема дня",
-    timeLeft: "Осталось",
     joinChat: "Войти в чат",
     buyPass: "Купить PASS (3$) / VIP (10$)",
     swap: "Купить $ARENA",
@@ -22,24 +20,33 @@ const i18n = {
 };
 
 const els = {
+  fighters: document.getElementById("fighters"),
   themeText: document.getElementById("themeText"),
   countdown: document.getElementById("countdown"),
   chatLink: document.getElementById("chatLink"),
   ticketLink: document.getElementById("ticketLink"),
   dexLink: document.getElementById("dexLink"),
   btnEN: document.getElementById("btn-en"),
-  btnRU: document.getElementById("btn-ru")
+  btnRU: document.getElementById("btn-ru"),
+  historyGrid: document.getElementById("historyGrid")
 };
 
 let lang = localStorage.getItem("arena_lang") || "en";
 applyLang(lang);
 
+// load data
 fetch("arena.json?v=" + Date.now()).then(r=>r.json()).then(data=>{
+  const L = data.left || {label:"Left", emoji:"⚔️"};
+  const R = data.right || {label:"Right", emoji:"🛡️"};
+
+  els.fighters.textContent = `${L.emoji} ${L.label}  vs  ${R.label} ${R.emoji}`;
   els.themeText.textContent = data.themeToday || "-";
   els.chatLink.href = data.chatLink;
   els.ticketLink.href = data.ticketLink;
   els.dexLink.href = data.dexLink;
+
   startCountdown(new Date(data.arenaEndsAtISO));
+  renderHistory(data.pastArenas || []);
 }).catch(()=>{
   els.themeText.textContent = "—";
 });
@@ -55,6 +62,23 @@ function startCountdown(end){
     els.countdown.textContent = `${h}:${m}:${s}`;
   }
   tick(); setInterval(tick, 1000);
+}
+
+function renderHistory(items){
+  els.historyGrid.innerHTML = "";
+  items.forEach(it=>{
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
+      <div class="row"><strong>#${it.id}</strong> <span>${new Date(it.dateISO).toLocaleDateString()}</span></div>
+      <div class="row">${it.left.emoji} ${it.left.label} vs ${it.right.label} ${it.right.emoji}</div>
+      <div class="row"><span>Volume</span><strong>$${(it.volumeUSD||0).toLocaleString()}</strong></div>
+      <div class="row"><span>Tx</span><span>${it.txCount||0}</span></div>
+      <div class="row"><span>Chat</span><span>${it.chatHours||24}h • ${it.messages||0} msgs</span></div>
+      <div class="row"><span>Winner</span><span class="win">${it.winner||"-"}</span></div>
+    `;
+    els.historyGrid.appendChild(div);
+  });
 }
 
 function applyLang(l){
