@@ -15,9 +15,12 @@
 </head>
 <body>
   <!-- Фон: одна арена на все дни -->
- <div class="age">
-  <img src="badge-18.svg" alt="18+">
-</div>
+  <div class="hero-bg">
+    <img src="arena-bg.jpg" alt="">
+    <div class="overlay"></div>
+    <div class="vignette"></div>
+  </div>
+
   <header class="topbar">
     <div class="brand">
       <span class="logo">🛡️</span>
@@ -25,8 +28,7 @@
     </div>
     <div class="rightside">
       <div class="age">
-        <img src="badge-18.svg" alt="18+" onerror="this.remove();document.getElementById('ageText').style.display='inline'">
-        <span id="ageText">18+</span>
+        <img src="badge-18.svg" alt="18+">
       </div>
       <div class="lang">
         <button id="btn-en" class="active">EN</button>
@@ -37,24 +39,24 @@
 
   <main class="container">
 
-    <section class="center-hero glass">
+    <section class="center-hero">
       <div class="fighters" id="fighters">⚔️ — vs —</div>
       <div id="countdown" class="count">--:--:--</div>
 
       <div class="actions">
-        <a id="chatLink" class="btn primary glow" target="_blank" data-i18n="joinChat">Join Chat</a>
-        <a id="ticketLink" class="btn glow" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
+        <a id="chatLink" class="btn primary" target="_blank" data-i18n="joinChat">Join Chat</a>
+        <a id="ticketLink" class="btn" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
         <a id="dexLink" class="btn outline" target="_blank" data-i18n="swap">Swap $ARENA</a>
       </div>
     </section>
 
     <section class="cards">
-      <div class="card glass">
+      <div class="card">
         <span class="label" data-i18n="todayTheme">Today’s theme</span>
         <h2 id="themeText">—</h2>
       </div>
 
-      <div class="card glass">
+      <div class="card">
         <span class="label">NFT Badge</span>
         <p id="nftText" class="muted">
           🎖 VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
