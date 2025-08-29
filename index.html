@@ -27,12 +27,12 @@
       <span>ARENA</span>
     </div>
     <div class="rightside">
-      <div class="age">
+      <div class="age" title="18+">
         <img src="badge-18.svg" alt="18+">
       </div>
       <div class="lang">
-        <button id="btn-en" class="active">EN</button>
-        <button id="btn-ru">RU</button>
+        <button id="btn-en" class="active" type="button">EN</button>
+        <button id="btn-ru" type="button">RU</button>
       </div>
     </div>
   </header>
@@ -57,15 +57,15 @@
       </div>
 
       <div class="card">
-        <span class="label">NFT Badge</span>
-        <p id="nftText" class="muted">
+        <span class="label" data-i18n="nftBadge">NFT Badge</span>
+        <p id="nftText" class="muted" data-i18n="nftText">
           🎖 VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
         </p>
       </div>
     </section>
 
     <section class="history">
-      <h3>Past Arenas</h3>
+      <h3 data-i18n="pastArenas">Past Arenas</h3>
       <div id="historyGrid" class="grid"></div>
     </section>
 
@@ -75,9 +75,9 @@
   </main>
 
   <footer class="footer">
-    <a href="https://t.me/" target="_blank" class="small">Telegram</a>
+    <a id="tgFooter" href="https://t.me/" target="_blank" class="small">Telegram</a>
     <span class="dot">•</span>
-    <a href="https://twitter.com/" target="_blank" class="small">X / Twitter</a>
+    <a id="twFooter" href="https://twitter.com/" target="_blank" class="small">X / Twitter</a>
   </footer>
 
   <script src="script.js"></script>
