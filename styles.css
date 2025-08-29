@@ -133,4 +133,11 @@ body{
 .footer{max-width:980px;margin:10px auto 30px;padding:0 20px;display:flex;gap:10px;align-items:center}
 .small{color:#444;text-decoration:none;border-bottom:1px dashed rgba(0,0,0,.25)}
 .small:hover{color:#000}
-.foot{color:#444;font-size:13px;margin:16px 0}
+.foot{
+  color:#fff;                 /* белый текст */
+  font-size:14px;
+  margin:16px 0;
+  text-align:center;          /* по центру */
+  text-shadow:0 1px 3px rgba(0,0,0,.6); /* лёгкая тень для читаемости */
+}
+
