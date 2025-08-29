@@ -31,6 +31,7 @@
     </div>
     <div class="rightside">
       <nav class="social">
+        <!-- подставь свои ссылки; либо скриптом из arena.json -->
         <a href="https://t.me/your_channel" target="_blank" rel="noopener">Telegram</a>
         <a href="https://twitter.com/your_account" target="_blank" rel="noopener">Twitter</a>
       </nav>
@@ -45,6 +46,7 @@
   </header>
 
   <main class="container">
+    <!-- ГЕРО -->
     <section class="center-hero">
       <div class="fighters" id="fighters">⚔️ — vs —</div>
       <div id="countdown" class="count">--:--:--</div>
@@ -56,38 +58,38 @@
       </div>
     </section>
 
-<!-- КАРТОЧКИ ПОД ТАЙМЕРОМ -->
-<section class="cards">
-  <!-- Today’s theme -->
-  <div class="card">
-    <span class="label" data-i18n="todayTheme">Today’s theme</span>
-    <h2 id="themeText">—</h2>
-  </div>
+    <!-- КАРТОЧКИ -->
+    <section class="cards">
+      <!-- Today’s theme -->
+      <div class="card">
+        <span class="label" data-i18n="todayTheme">Today’s theme</span>
+        <h2 id="themeText">—</h2>
+      </div>
 
-  <!-- NFT Badge (усиленная читабельность и “награда”) -->
-  <div class="card card-nft">
-    <div class="nft-head">
-      <span class="label" data-i18n="nftBadge">NFT Badge</span>
-      <span class="nft-ribbon">🎖</span>
-    </div>
-    <p id="nftText" class="muted" data-i18n="nftText">
-      VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
-    </p>
-  </div>
-</section>
+      <!-- NFT Badge — улучшенная читабельность -->
+      <div class="card card-nft">
+        <div class="nft-head">
+          <span class="label" data-i18n="nftBadge">NFT Badge</span>
+          <span class="nft-ribbon">🎖</span>
+        </div>
+        <p id="nftText" class="muted" data-i18n="nftText">
+          VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
+        </p>
+      </div>
+    </section>
 
-
-    <!-- НОВЫЙ БЛОК -->
+    <!-- HOW IT WORKS -->
     <section class="howitworks">
       <h3 data-i18n="howItWorks">How it works</h3>
-      <ul>
-        <li data-i18n="rule1">⚔️ Every 24h a new Arena starts.</li>
-        <li data-i18n="rule2">🎫 To join the chat you buy a PASS ($3) or VIP PASS ($10).</li>
-        <li data-i18n="rule3">⏳ The Arena token lives only for 24h. You can buy it, trade it, but there is no refund.</li>
-        <li data-i18n="rule4">🏆 After 24h the fight ends, winner is chosen by memes, chat and volume.</li>
+      <ul class="how-list">
+        <li>⚔️ Every 24h a new Arena starts.</li>
+        <li>🎫 To chat you buy a PASS ($3) or VIP PASS ($10). The token is a non-refundable entry ticket.</li>
+        <li>📈 You can also just trade the token on the market — catch x’s or take L’s, it’s pure volatility.</li>
+        <li>⏳ The Arena runs 24h. Winner is decided by memes, chat heat and trading volume.</li>
       </ul>
     </section>
 
+    <!-- История -->
     <section class="history">
       <h3 data-i18n="pastArenas">Past Arenas</h3>
       <div id="historyGrid" class="grid"></div>
