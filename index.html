@@ -1,85 +1,86 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>ARENA — 24h memecoin + uncensored chat</title>
-  <meta name="description" content="New theme every day. Talk freely. No bots. 18+">
-  <meta property="og:title" content="ARENA — 24h memecoin + uncensored chat">
-  <meta property="og:description" content="New theme every day. Talk freely. No bots. 18+">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мемкоин Арена — MMM.AI</title>
+  <meta name="description" content="Мемкоин Арена: простой вход, шум, хайп. Быстрые запуски токенов + безцензурный чат.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Опенграф для красивых превью в соцсетях -->
+  <meta property="og:title" content="Мемкоин Арена — MMM.AI" />
+  <meta property="og:description" content="Запускаем токены, поднимаем шум. Присоединяйся." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://romashipit.github.io/arena-site/" />
+  <meta property="og:image" content="og-image.jpg" />
 </head>
 <body>
-  <!-- Фон: одна арена на все дни -->
-  <div class="hero-bg">
-    <img src="arena-bg.jpg" alt="">
-    <div class="overlay"></div>
-    <div class="vignette"></div>
-  </div>
-
-  <header class="topbar">
-    <div class="brand">
-      <span class="logo">🛡️</span>
-      <span>ARENA</span>
-    </div>
-    <div class="rightside">
-      <div class="age">
-        <img src="badge-18.svg" alt="18+">
-      </div>
-      <div class="lang">
-        <button id="btn-en" class="active">EN</button>
-        <button id="btn-ru">RU</button>
-      </div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">MMM.AI</div>
+      <nav class="links">
+        <a href="#how">Как это работает</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join" class="btn btn-sm">Вступить</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-
-    <section class="center-hero">
-      <div class="fighters" id="fighters">⚔️ — vs —</div>
-      <div id="countdown" class="count">--:--:--</div>
-
-      <div class="actions">
-        <a id="chatLink" class="btn primary" target="_blank" data-i18n="joinChat">Join Chat</a>
-        <a id="ticketLink" class="btn" target="_blank" data-i18n="buyPass">Buy Pass ($3) / VIP ($10)</a>
-        <a id="dexLink" class="btn outline" target="_blank" data-i18n="swap">Swap $ARENA</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Мемкоин&nbsp;Арена</h1>
+        <p class="sub">Запускаем токены. Делаем шум. Без цензуры в чате.</p>
+        <div class="cta">
+          <!-- ЗАМЕНИ ССЫЛКИ НИЖЕ на реальные, когда будут -->
+          <a class="btn btn-primary" href="https://t.me/your_channel" target="_blank" rel="noopener">Вступить в Telegram</a>
+          <a class="btn btn-secondary" href="https://twitter.com/your_account" target="_blank" rel="noopener">Twitter</a>
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Купить токен</a>
+        </div>
+        <div class="note">Сайт в разработке — главное уже есть: кнопки входа и ссылки.</div>
       </div>
     </section>
 
-    <section class="cards">
-      <div class="card">
-        <span class="label" data-i18n="todayTheme">Today’s theme</span>
-        <h2 id="themeText">—</h2>
-      </div>
-
-      <div class="card">
-        <span class="label">NFT Badge</span>
-        <p id="nftText" class="muted">
-          🎖 VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
-        </p>
+    <section id="how" class="how">
+      <div class="container">
+        <h2>Как это работает</h2>
+        <ul class="steps">
+          <li><span>1</span> Запускаем токен дня и даём мемам разлететься.</li>
+          <li><span>2</span> Гоним трафик из Twitter и Telegram.</li>
+          <li><span>3</span> Чат без модерации — хайп и движ.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="history">
-      <h3>Past Arenas</h3>
-      <div id="historyGrid" class="grid"></div>
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Когда будет кнопка «Купить токен»?</summary>
+          <p>Как только выкатим первый листинг, ссылка появится здесь.</p>
+        </details>
+        <details>
+          <summary>Зачем Telegram?</summary>
+          <p>Это центр комьюнити и основной источник движухи.</p>
+        </details>
+      </div>
     </section>
 
-    <p class="foot" data-i18n="foot">
-      We ban only scammers, porn-bots and hard spam. Everything else is allowed.
-    </p>
+    <section id="join" class="join">
+      <div class="container">
+        <h2>Заходи сейчас</h2>
+        <p>Первым всегда достаётся больше внимания.</p>
+        <a class="btn btn-primary" href="https://t.me/your_channel" target="_blank" rel="noopener">Вступить в Telegram</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <a href="https://t.me/" target="_blank" class="small">Telegram</a>
-    <span class="dot">•</span>
-    <a href="https://twitter.com/" target="_blank" class="small">X / Twitter</a>
+    <div class="container">
+      <div>© 2025 MMM.AI</div>
+      <div class="muted">Не финсовет. Мемы ради мемов.</div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
