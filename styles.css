@@ -1,8 +1,11 @@
 :root{
   --txt:#0e0e10;
+  --txt-inv:#ffffff;
   --muted:#3a3a42;
   --bg:#f7efe4;            /* тёплый песок */
   --ac:#d97706;            /* янтарный (кнопка) */
+  --gold1:#ffd772;         /* золотые акценты */
+  --gold2:#f6b93b;
   --danger:#b91c1c;        /* красный 18+ */
 }
 
@@ -16,87 +19,85 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== ФОН АРЕНЫ НА ВЕСЬ ЭКРАН ===== */
+/* ===== ФОН АРЕНЫ ===== */
 .hero-bg{
-  position:fixed;
-  top:0; left:0; width:100vw; height:100vh;
-  z-index:-1;                    /* уходит за контент */
-  overflow:hidden;
+  position:fixed; inset:0; z-index:-1; overflow:hidden;
 }
 .hero-bg img{
-  width:100%; height:100%;
-  object-fit:cover;
-  object-position:center top;
-  transform:translateZ(0);
-  filter:saturate(1.08) contrast(1.06);
+  width:100%; height:100%; object-fit:cover; object-position:center top;
+  filter:saturate(1.06) contrast(1.06);
 }
 .hero-bg .overlay{
   position:absolute; inset:0; z-index:1;
   background:linear-gradient(180deg,
-    rgba(255,255,255,.22) 0%,
-    rgba(255,255,255,.16) 30%,
-    rgba(255,255,255,.10) 60%,
-    rgba(255,255,255,.06) 100%);
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.10) 40%,
+    rgba(255,255,255,.08) 100%);
   backdrop-filter: blur(.6px) contrast(1.06) saturate(1.06);
 }
-.vignette{
-  position:absolute; inset:0; z-index:2; pointer-events:none;
-  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.18);
+.vignette{ position:absolute; inset:0; z-index:2; pointer-events:none;
+  box-shadow:inset 0 0 220px 60px rgba(0,0,0,.22);
 }
 
-/* ===== ШАПКА ===== */
+/* ===== ХЕДЕР «ЛЮКС» ===== */
 .topbar{
   position:sticky; top:0; z-index:10;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 20px;
-  border-bottom:1px solid rgba(0,0,0,.06);
-  background:rgba(255,255,255,.75); /* чуть прозрачнее, чтобы не резало глаз */
-  backdrop-filter: blur(8px);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 20px; border-bottom:1px solid rgba(255,255,255,.08);
 }
-.brand{display:flex;gap:10px;align-items:center;font-weight:800}
-.logo{font-size:20px}
-.rightside{display:flex;align-items:center;gap:16px}
+.topbar.luxe{
+  background:rgba(15,15,20,.45);              /* тёмное стекло */
+  backdrop-filter: blur(12px) saturate(1.05);
+  box-shadow:0 6px 18px rgba(0,0,0,.25), inset 0 -1px 0 rgba(255,255,255,.06);
+}
+.brand{display:flex; gap:10px; align-items:center}
+.logo{width:30px; height:30px; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));}
+.brand-text{
+  color:#fff; font-weight:900; font-size:20px; letter-spacing:.6px;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+  position:relative;
+}
+.brand-text::after{
+  content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px;
+  background:linear-gradient(90deg,var(--gold1),var(--gold2));
+  opacity:.85; border-radius:2px;
+}
+.rightside{display:flex; align-items:center; gap:16px}
 
 /* ссылки в хедере */
-.social{display:flex;gap:14px;flex-wrap:wrap}
+.social{display:flex; gap:14px; flex-wrap:wrap}
 .social a{
-  color:var(--txt);
-  text-decoration:none;
-  font-weight:700;
-  font-size:14px;
-  padding:6px 10px;
-  border-radius:6px;
+  color:var(--txt-inv); text-decoration:none; font-weight:800; font-size:14px;
+  padding:6px 10px; border-radius:8px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
   transition:all .2s ease;
 }
-.social a:hover{ background:rgba(0,0,0,.06); }
+.social a:hover{ background:rgba(255,255,255,.15); box-shadow:0 6px 14px rgba(0,0,0,.25); }
 
 .age{
-  display:flex;align-items:center;gap:8px;
-  font-weight:900;color:var(--danger);
-  padding:4px 10px;
-  background:linear-gradient(135deg,#fee2e2,#fecaca);
-  border:1px solid rgba(185,28,28,.25);
-  border-radius:999px;
+  display:flex; align-items:center; gap:8px; font-weight:900; color:#ffb4b4;
+  padding:4px 10px; background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.18); border-radius:999px;
 }
 .age img{width:28px;height:28px;display:block}
 .lang button{
-  background:transparent;border:1px solid rgba(0,0,0,.1);
-  color:var(--txt); padding:6px 10px;border-radius:8px;cursor:pointer
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
+  color:var(--txt-inv); padding:6px 10px; border-radius:8px; cursor:pointer;
+  font-weight:700;
 }
-.lang .active{border-color:var(--ac);color:var(--ac)}
+.lang .active{ border-color: var(--gold1); box-shadow:0 0 0 1px var(--gold1) inset; }
 
 /* ===== КОНТЕЙНЕР ===== */
 .container{max-width:980px;margin:24px auto;padding:0 20px}
 
-/* ===== ЦЕНТРАЛЬНЫЙ БЛОК (БОЙ + ТАЙМЕР) ===== */
+/* ===== ГЕРО БЛОК ===== */
 .center-hero{
-  margin:26px auto; padding:26px 24px;
-  border-radius:22px;
-  border:1px solid rgba(0,0,0,.06);
-  background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.54));
-  box-shadow: 0 20px 40px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.6);
-  backdrop-filter: blur(10px);
-  text-align:center; max-width:940px;
+  margin:26px auto; padding:26px 24px; border-radius:22px;
+  border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.16));
+  box-shadow: 0 20px 40px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.35);
+  backdrop-filter: blur(10px); text-align:center; max-width:940px;
 }
 .fighters{font-size:34px; font-weight:900; letter-spacing:.3px}
 .count{font-size:46px;font-weight:900;margin-top:8px}
@@ -113,47 +114,44 @@ body{
 .btn:hover{transform:translateY(-1px)}
 .btn.primary{
   background:linear-gradient(135deg,#f59e0b,#d97706);
-  border-color:transparent;color:#fff
+  border-color:transparent;color:#fff; font-weight:800;
 }
 .btn.primary:hover{box-shadow:0 16px 40px rgba(217,119,6,.32)}
 
-/* ===== КАРТОЧКИ ПОД ТАЙМЕРОМ ===== */
+/* ===== КАРТОЧКИ ===== */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:940px;margin:0 auto}
 .card{
-  background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.54));
-  border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
+  background:linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.16));
+  border:1px solid rgba(255,255,255,.16); border-radius:18px; padding:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.35);
   backdrop-filter: blur(8px);
 }
-.label{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;margin-bottom:6px}
-.muted{color:var(--muted)}
+.label{display:block;color:#eee;font-size:12px;text-transform:uppercase;margin-bottom:6px;letter-spacing:.8px}
+.muted{color:#222}
 
-/* ===== ИСТОРИЯ АРЕН ===== */
+/* ===== ИСТОРИЯ ===== */
 .history{margin-top:24px; max-width:940px; margin-left:auto; margin-right:auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .history .item{
-  background:rgba(255,255,255,.68);
-  border:1px solid rgba(0,0,0,.06);
+  background:linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.14));
+  border:1px solid rgba(255,255,255,.16);
   border-radius:14px; padding:12px 14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.6);
+  box-shadow:0 8px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.35);
   backdrop-filter: blur(6px)
 }
-.history .row{display:flex;justify-content:space-between;gap:8px;margin:4px 0;font-size:14px}
+.history .row{display:flex;justify-content:space-between;gap:8px;margin:4px 0;font-size:14px;color:#111}
 .history .item strong{font-weight:800}
 .history .win{font-weight:900;color:var(--ac)}
 
-/* ===== ПОДВАЛ/ПРЕДУПРЕЖДЕНИЕ ===== */
+/* ===== ПРЕДУПРЕЖДЕНИЕ ===== */
 .foot{
-  color:#fff;                 /* стало видно */
-  font-size:14px;
-  margin:16px 0;
-  text-align:center;
-  text-shadow:0 1px 3px rgba(0,0,0,.6);
+  color:#fff; font-size:14px; margin:16px 0; text-align:center;
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
 }
 
-/* Адаптив: на узких экранах переносим ссылки и сетки */
+/* Адаптив */
 @media (max-width: 760px){
-  .rightside{gap:12px}
+  .rightside{gap:10px}
   .social{gap:10px}
   .cards{grid-template-columns:1fr}
 }
