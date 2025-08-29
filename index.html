@@ -56,19 +56,26 @@
       </div>
     </section>
 
-    <section class="cards">
-      <div class="card">
-        <span class="label" data-i18n="todayTheme">Today’s theme</span>
-        <h2 id="themeText">—</h2>
-      </div>
+<!-- КАРТОЧКИ ПОД ТАЙМЕРОМ -->
+<section class="cards">
+  <!-- Today’s theme -->
+  <div class="card">
+    <span class="label" data-i18n="todayTheme">Today’s theme</span>
+    <h2 id="themeText">—</h2>
+  </div>
 
-      <div class="card">
-        <span class="label" data-i18n="nftBadge">NFT Badge</span>
-        <p id="nftText" class="muted" data-i18n="nftText">
-          🎖 VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
-        </p>
-      </div>
-    </section>
+  <!-- NFT Badge (усиленная читабельность и “награда”) -->
+  <div class="card card-nft">
+    <div class="nft-head">
+      <span class="label" data-i18n="nftBadge">NFT Badge</span>
+      <span class="nft-ribbon">🎖</span>
+    </div>
+    <p id="nftText" class="muted" data-i18n="nftText">
+      VIP gets an NFT badge — proof you fought in today’s Arena. Collect daily.
+    </p>
+  </div>
+</section>
+
 
     <!-- НОВЫЙ БЛОК -->
     <section class="howitworks">
