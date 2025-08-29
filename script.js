@@ -45,7 +45,14 @@ fetch("arena.json?v=" + Date.now()).then(r=>r.json()).then(data=>{
   els.ticketLink.href = data.ticketLink;
   els.dexLink.href = data.dexLink;
 
-  startCountdown(new Date(data.arenaEndsAtISO));
+  let end = new Date(data.arenaEndsAtISO);
+if (isNaN(end) || end < new Date()) {
+  // если дата битая или уже прошла — считаем до ближайшей местной полуночи
+  end = new Date();
+  end.setHours(24,0,0,0);
+}
+startCountdown(end);
+
   renderHistory(data.pastArenas || []);
 }).catch(()=>{
   els.themeText.textContent = "—";
